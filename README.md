@@ -8,9 +8,9 @@ What is a 5x5 matrix color transformation? Assume out input color values are `r`
 ```
 [  r  g  b  a  1  ]
 ```
-Our output matrix looks very similar. Lets call our output values `R`, `G`, `B`, and `A`. For reasons I don't totally understand, there is also a dummy output value. We will call that value `D`. Our output matrix will look like this
+Our output matrix looks very similar. Lets call our output values `R`, `G`, `B`, `A` and `W`. Our output matrix will look like this
 ```
-[  R  G  B  A  D  ]
+[  R  G  B  A  W  ]
 ```
 We get to pick a 5x5 matrix that will transform our input data and give us our output data. Each column in the matrix corresponds to an output color in our output matrix. Each row corresponds to an input channel from our input matrix. For example, if the first column of our 5x5 matrix looked like this:
 ```
@@ -22,7 +22,7 @@ We get to pick a 5x5 matrix that will transform our input data and give us our o
 ```
 Then the output value for the red channel would be
 ```
-R = (0.1*r) + (0.2*g) + (0.3*b) + (0.4*a) + (0.5)
+R = ( (0.1*r) + (0.2*g) + (0.3*b) + (0.4*a) + (0.5) ) / 5
 ```
 ## Example Matrices
 The most basic matrix looks like this:
@@ -75,3 +75,4 @@ Windowed mode uses `MagSetColorEffect` rather than `MagSetFullscreenColorEffect`
 
 ## Compiling
 This API docs say it doesn't work under [WoW64](https://en.wikipedia.org/wiki/WoW64), so you **must** use a 64-bit binary on a 64-bit computer. My testing disagrees with this (32-bit seems to work everywhere). YMMM. There is a build.bat that can be run under the Visual Studio Developer Tools Command Prompt. See the releases page for a pre-compiled binary.
+
